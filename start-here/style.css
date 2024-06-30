@@ -1,0 +1,18 @@
+/* the beginning of styling the search bar */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Adds space for the icon */
+.search-container input[type="text"] {
+    padding-right: 30px; 
+}
+
+.search-container .fa-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

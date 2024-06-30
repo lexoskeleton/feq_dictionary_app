@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome's CDN -->
+    <script
+      src="https://kit.fontawesome.com/01a90ecdd9.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Dictionary web app</title>
-</head>
-<body>
+    <title>Dev Divas | Dictionary web app</title>
+  </head>
 
-</body>
+  <body>
+    <!-- Search Input Field -->
+    <div class="search-container">
+      <input type="search" id="search" placeholder="Search for any word" />
+      <!-- we can make build out sumbitting the search later -->
+      <i class="fa fa-search" id="search-icon" onclick="search()"></i>
+    </div>
+  </body>
 </html>
