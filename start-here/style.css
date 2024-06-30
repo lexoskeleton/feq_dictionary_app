@@ -6,10 +6,10 @@
 
 /* Adds space for the icon */
 .search-container input[type="text"] {
-    padding-right: 30px; 
+    padding-right: 20px; 
 }
 
-.search-container .fa-search {
+.search-container .search-icon {
     position: absolute;
     right: 10px;
     top: 50%;
