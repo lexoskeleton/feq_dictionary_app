@@ -10,8 +10,13 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
       />
-    <title>Frontend Mentor | Dictionary web app</title>
-  </head>
+
+      <link rel="stylesheet" href="style.css" />
+
+      <title>Dev Divas | Dictionary web app</title>
+    </head>
+
+
   <body>
     <nav>
 			<label class="toggle" aria-label="Toggle theme">
@@ -20,6 +25,24 @@
 				<span class="slider-button"></span>
 			</label>
 		</nav>
+
+    <!-- Search Input Field -->
+    <div class="search-container">
+      <input
+        type="search"
+        id="search-field"
+        placeholder="Search for any word"
+        required
+      />
+      <!-- Search Icon -->
+      <a>
+        <img
+          src="/start-here/assets/images/icon-search.svg"
+          class="search-icon"
+        />
+      </a>
+    </div>
+    
     <!-- Results Div -->
     <div>
       <div class="title-wrapper">
