@@ -1,18 +1,9 @@
-/* the beginning of styling the search bar */
-.search-container {
+/* toggle button styles start here */
+.toggle {
     position: relative;
-    display: inline-block;
+    width: 107px;
 }
 
-/* Adds space for the icon */
-.search-container input[type="text"] {
-    padding-right: 20px; 
-}
-
-.search-container .search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+.toggle input[type=checkbox] {
+    display: none;
 }
