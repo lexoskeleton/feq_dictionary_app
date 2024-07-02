@@ -1,18 +1,39 @@
-/* the beginning of styling the search bar */
-.search-container {
-    position: relative;
-    display: inline-block;
+:root {
+  --warning-color: #ff5252;
+  --primary-color: #a445ed;
+  --light-grey-bg-color: #f4f4f4;
 }
 
-/* Adds space for the icon */
-.search-container input[type="text"] {
-    padding-right: 20px; 
+/* Search bar style */
+.search-container {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box {
+  width: 372px;
+  height: 48px;
+  background-color: var(--light-grey-bg-color);
+  border-radius: 12px;
+  font-size: 14px;
+  /* Adds space for input content */
+  padding: 0px 45px 0px 20px;
+  /* to be toggle by warning message */
+  border: 1px solid var(--warning-color);
 }
 
 .search-container .search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* warning message */
+.warning-message {
+  color: var(--warning-color);
+  line-height: 2px;
+  /* display: none; */
 }
