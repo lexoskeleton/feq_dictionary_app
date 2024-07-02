@@ -1,9 +1,18 @@
 /* toggle button styles start here */
-.toggle {
-    position: relative;
-    width: 107px;
+
+
+/* toggle button styles end here */
+
+/* dark mode theme starts here */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #fff;
+        --text-color: #
+    }
 }
 
-.toggle input[type=checkbox] {
-    display: none;
-}
+/* dark mode theme ends here */
+
+/* light mode theme starts here */
+
+/* light mode theme ends here */
