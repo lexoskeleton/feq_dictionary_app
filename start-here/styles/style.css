@@ -1,18 +1,18 @@
-/* the beginning of styling the search bar */
-.search-container {
-    position: relative;
-    display: inline-block;
+/* toggle button styles start here */
+
+
+/* toggle button styles end here */
+
+/* dark mode theme starts here */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #000;
+        --text-color: #fff;
+    }
 }
 
-/* Adds space for the icon */
-.search-container input[type="text"] {
-    padding-right: 20px; 
-}
+/* dark mode theme ends here */
 
-.search-container .search-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
+/* light mode theme starts here */
+
+/* light mode theme ends here */
