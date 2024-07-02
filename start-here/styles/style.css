@@ -6,8 +6,8 @@
 /* dark mode theme starts here */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg-color: #fff;
-        --text-color: #
+        --bg-color: #000;
+        --text-color: #fff;
     }
 }
 
