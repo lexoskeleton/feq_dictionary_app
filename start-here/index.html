@@ -11,6 +11,7 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <link rel="stylesheet" href="./styles/resetStyles.css" />
     <link rel="stylesheet" href="./styles/style.css" />
 
     <title>Dev Divas | Dictionary web app</title>
@@ -32,11 +33,12 @@
           type="text"
           id="search-field"
           class="search-box"
+          value=""
           placeholder="Search for any word..."
           required
         />
         <!-- Search Icon -->
-        <a>
+        <a class="search-icon">
           <img
             width="15.5px"
             height="15.5px"
@@ -45,7 +47,7 @@
           />
         </a>
       </div>
-      <p class="warning-message">Whoops, can't be empty...</p>
+      <p class="warning-message-hidden">Whoops, can't be empty...</p>
     </div>
 
     <!-- Results Div -->
@@ -111,4 +113,5 @@
       </div>
     </div>
   </body>
+  <script src="./js/script-main.js"></script>
 </html>
