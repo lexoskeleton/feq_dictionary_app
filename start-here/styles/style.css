@@ -27,7 +27,11 @@
   border: none;
 }
 
-.search-box:focus {
+.search-box--warning {
+  border: 1px solid var(--warning-color);
+}
+
+.search-box--focus {
   border: 1px solid var(--primary-color);
 }
 

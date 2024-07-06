@@ -15,17 +15,19 @@ function handleSearch() {
 
   if (input.value === '') {
     warningMessage.style.display = 'block';
-    input.style.border = '1px solid var(--warning-color)';
+    input.classList.add('search-box--warning');
   } else {
     warningMessage.style.display = 'none';
-    input.style.border = 'none';
+    input.classList.remove('search-box--warning');
   }
 }
 
 input.addEventListener('focus', function () {
   warningMessage.style.display = 'none';
-  input.style.border = '1px solid var(--primary-color)';
+  input.classList.remove('search-box--warning');
+  input.classList.add('search-box--focus');
 });
 input.addEventListener('keydown', function () {
-  input.style.border = 'none';
+  input.classList.remove('search-box--warning');
+  input.classList.remove('search-box--focus');
 });
