@@ -169,9 +169,21 @@ label[for="serif"] {
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
 }
+/* dark mode starts here */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg-color: #000;
+      --text-color: #fff;
+  }
+}
 
 /* dark mode theme ends here */
 
 /* light mode theme starts here */
-
+@media (prefers-color-scheme: light) {
+  :root {
+      --bg-color: #fff;
+      --text-color: #000;
+  }
+}
 /* light mode theme ends here */
