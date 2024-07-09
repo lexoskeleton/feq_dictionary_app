@@ -33,12 +33,26 @@ input.addEventListener("keydown", function () {
 });
 
 // Select font-selection
-const selectFont = document.getElementById("font-select");
+const customSelect = document.querySelector(".custom-select");
+const selectBtn = document.querySelector(".select-button");
+const selectedValue = document.querySelector(".selected-value");
+const optionsList = document.querySelectorAll(".select-dropdown li");
 
-function handleFontChange() {
-  const font = selectFont.value;
+// add a click event to select button
+selectBtn.addEventListener("click", () => {
+  // add/remove active class on the container element
+  customSelect.classList.toggle("active");
+  // update the aria-expanded attribute based on the current state
+  selectBtn.setAttribute(
+    "aria-expanded",
+    selectBtn.getAttribute("aria-expanded") === "true" ? "false" : "true"
+  );
+});
+
+// change body font function
+function handleFontChange(font) {
   switch (font) {
-    case "Sans-Serif":
+    case "Sans Serif":
       document.body.style.fontFamily = `"Inter", sans-serif`;
       break;
     case "Serif":
@@ -51,6 +65,16 @@ function handleFontChange() {
       throw new Error("Invalid font");
   }
 }
-
-// Event listener on select font change
-selectFont.addEventListener("change", handleFontChange);
+// add event listener to list items
+optionsList.forEach((option) => {
+  function handler(e) {
+    // Click Events
+    if (e.type === "click" && e.clientX !== 0 && e.clientY !== 0) {
+      const font = this.children[1].textContent;
+      selectedValue.textContent = font;
+      customSelect.classList.remove("active");
+      handleFontChange(font);
+    }
+  }
+  option.addEventListener("click", handler);
+});
