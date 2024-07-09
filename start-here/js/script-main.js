@@ -78,3 +78,8 @@ optionsList.forEach((option) => {
   }
   option.addEventListener("click", handler);
 });
+// Dark Mode Toggle
+function myFunction() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+ }
