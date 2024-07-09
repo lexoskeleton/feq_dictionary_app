@@ -186,4 +186,13 @@ label[for="mono"] {
       --text-color: #000;
   }
 }
+/* light mode theme starts here */
+@media (prefers-color-scheme: light){
+  :root {
+--bg-color: #fff;
+--text-color: #000;
+}
+}
+
 /* light mode theme ends here */
+}
