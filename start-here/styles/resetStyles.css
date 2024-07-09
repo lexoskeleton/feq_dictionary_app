@@ -1,0 +1,55 @@
+/* reset styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  line-height: calc(1em + 1rem);
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  width: 100vw;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  text-decoration: none;
+}
+
+input:focus {
+  outline: 0;
+}
+
+/* end of reset styles */

@@ -1,103 +1,183 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="./assets/images/favicon-32x32.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:wght@100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/resetStyles.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
 
-		<link rel="stylesheet" href="style.css" />
+    <title>Dev Divas | Dictionary web app</title>
+  </head>
 
-		<title>Dev Divas | Dictionary web app</title>
-	</head>
+  <body>
+    <nav>
+      <!-- book logo -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="34"
+        height="38"
+        viewBox="0 0 34 38"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke="#838383"
+          stroke-linecap="round"
+          stroke-width="1.5"
+        >
+          <path
+            d="M1 33V5a4 4 0 0 1 4-4h26.8A1.2 1.2 0 0 1 33 2.2v26.228M5 29h28M5 37h28"
+          />
+          <path stroke-linejoin="round" d="M5 37a4 4 0 1 1 0-8" />
+          <path d="M11 9h12" />
+        </g>
+      </svg>
+      <!-- font selector -->
+      <div class="custom-select">
+        <button
+          class="select-button"
+          role="combobox"
+          aria-labelledby="select button"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="select-dropdown"
+        >
+          <span class="selected-value">Sans Serif</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="8"
+            viewBox="0 0 14 8"
+          >
+            <path
+              fill="none"
+              stroke="#A445ED"
+              stroke-width="1.5"
+              d="m1 1 6 6 6-6"
+            />
+          </svg>
+        </button>
+        <ul class="select-dropdown" role="listbox">
+          <li role="option">
+            <input type="radio" id="sans-serif" name="font-select" />
+            <label for="sans-serif">Sans Serif</label>
+          </li>
+          <li role="option">
+            <input type="radio" id="serif" name="font-select" />
+            <label for="serif">Serif</label>
+          </li>
+          <li role="option">
+            <input type="radio" id="mono" name="font-select" />
+            <label for="mono">Mono</label>
+          </li>
+        </ul>
+      </div>
+      <label class="toggle" aria-label="Toggle theme">
+        <!-- <img src="path/to/moon-icon.png" alt="moon icon"> -->
+        <input type="checkbox" aria-label="Toggle option" />
+        <span class="slider-button"></span>
+      </label>
+    </nav>
 
-	<body>
-		<nav>
-			<label class="toggle" aria-label="Toggle theme">
-				<img src="/start-here/assets/images/icon-moon.svg" alt="moon icon" />
-				<input type="checkbox" aria-label="Toggle option" />
-				<span class="slider-button"></span>
-			</label>
-		</nav>
+    <!-- Search Input Field -->
+    <div class="search-container_wrapper">
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-field"
+          class="search-box"
+          value=""
+          placeholder="Search for any word..."
+          required
+        />
+        <!-- Search Icon -->
+        <a class="search-icon">
+          <img
+            width="15.5px"
+            height="15.5px"
+            src="./assets/images/icon-search.svg"
+            class="search-icon"
+          />
+        </a>
+      </div>
+      <p class="warning-message-hidden">Whoops, can't be empty...</p>
+    </div>
 
-		<!-- Search Input Field -->
-		<div class="search-container">
-			<input
-				type="search"
-				id="search-field"
-				placeholder="Search for any word"
-				required />
-			<!-- Search Icon -->
-			<a>
-				<img
-					src="/start-here/assets/images/icon-search.svg"
-					class="search-icon" />
-			</a>
-		</div>
-
-		<!-- Results Div -->
-		<div>
-			<div class="title-wrapper">
-				<h1 class="title">Keyboard</h1>
-				<h2>/'kib':d/</h2>
-				<div class="audio-wrapper">
-					<audio src=""></audio>
-					<img
-						width="48px"
-						height="48px"
-						src="./assets/images/icon-play.svg"
-						alt="Play" />
-				</div>
-			</div>
-			<div class="result-wrapper">
-				<div class="gramitical-type_wrapper">
-					<h3 class="gramitical-type-noun">noun</h3>
-				</div>
-				<div class="meaning-result_wrapper">
-					<h4>Meaning</h4>
-					<ul class="list-of-meanings">
-						<li>
-							(etc.) A set of keys used to operate a typewriter, computer etc.
-						</li>
-						<li>
-							(etc.) A set of keys used to operate a typewriter, computer etc.
-						</li>
-					</ul>
-				</div>
-				<div class="synonyms_wrapper">
-					<h4>Synonyms</h4>
-					<p>electronic keyboard</p>
-				</div>
-			</div>
-			<div class="result-wrapper">
-				<div class="gramitical-type_wrapper">
-					<h3 class="gramitical-type-verb">verb</h3>
-				</div>
-				<div class="meaning-result_wrapper">
-					<h4>Meaning</h4>
-					<ul class="list-of-meanings">
-						<li>To type on a computer keyboard.</li>
-					</ul>
-				</div>
-				<div class="example">
-					<p>“Keyboarding is the part of this job I hate the most.”</p>
-				</div>
-			</div>
-			<div>
-				<h4>Source</h4>
-				<a href="https://en.wiktionary.org/wiki/keyboard"
-					>https://en.wiktionary.org/wiki/keyboard</a
-				>
-				<img
-					width="12px"
-					height="12px"
-					src="./assets/images/icon-new-window.svg"
-					alt="Play" />
-			</div>
-		</div>
-	</body>
+    <!-- Results Div -->
+    <div>
+      <div class="title-wrapper">
+        <h1 class="title">Keyboard</h1>
+        <h2>/'kib':d/</h2>
+        <div class="audio-wrapper">
+          <audio src=""></audio>
+          <img
+            width="48px"
+            height="48px"
+            src="./assets/images/icon-play.svg"
+            alt="Play"
+          />
+        </div>
+      </div>
+      <div class="result-wrapper">
+        <div class="gramitical-type_wrapper">
+          <h3 class="gramitical-type-noun">noun</h3>
+        </div>
+        <div class="meaning-result_wrapper">
+          <h4>Meaning</h4>
+          <ul class="list-of-meanings">
+            <li>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
+            </li>
+            <li>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
+            </li>
+          </ul>
+        </div>
+        <div class="synonyms_wrapper">
+          <h4>Synonyms</h4>
+          <p>electronic keyboard</p>
+        </div>
+      </div>
+      <div class="result-wrapper">
+        <div class="gramitical-type_wrapper">
+          <h3 class="gramitical-type-verb">verb</h3>
+        </div>
+        <div class="meaning-result_wrapper">
+          <h4>Meaning</h4>
+          <ul class="list-of-meanings">
+            <li>To type on a computer keyboard.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <p>“Keyboarding is the part of this job I hate the most.”</p>
+        </div>
+      </div>
+      <div>
+        <h4>Source</h4>
+        <a href="https://en.wiktionary.org/wiki/keyboard"
+          >https://en.wiktionary.org/wiki/keyboard</a
+        >
+        <img
+          width="12px"
+          height="12px"
+          src="./assets/images/icon-new-window.svg"
+          alt="Play"
+        />
+      </div>
+    </div>
+  </body>
+  <script src="./js/script-main.js"></script>
 </html>
