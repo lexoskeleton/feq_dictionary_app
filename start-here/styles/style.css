@@ -5,6 +5,17 @@
   --text-color-dark: #2d2d2d;
 }
 
+/* container style */
+.container {
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 0 24px;
+}
+
+.container ~ .container {
+  margin-top: 24px;
+}
+
 /* top bar style */
 nav {
   width: 60%;
