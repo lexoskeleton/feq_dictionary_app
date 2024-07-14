@@ -1,36 +1,39 @@
 //Message to cheange class if input is empty:
-const warningMessage = document.querySelector(".warning-message-hidden");
+const warningMessage = document.querySelector(".warning-message");
 
 //Select Input field to verify emptiness:
 const input = document.querySelector("#search-field");
+//Select button-search:
+const searchButton = document.querySelector(".search-button");
 
 //Add event listner to the search button
-const searchButton = document
-  .querySelector(".search-icon")
-  .addEventListener("click", handleSearch);
+searchButton.addEventListener("click", handleSearchButtonClick);
+
+input.addEventListener("focus", handleSearchInputFocus);
 
 //Handle Search
-function handleSearch() {
-  console.log("clicked", typeof input);
-
+function handleSearchButtonClick() {
   if (input.value === "") {
-    warningMessage.style.display = "block";
-    input.classList.add("search-box--warning");
-  } else {
-    warningMessage.style.display = "none";
-    input.classList.remove("search-box--warning");
+    warningMessage.classList.remove("warning-message--hidden");
+    input.classList.add("search-input--warning");
+    return;
   }
+
+  warningMessage.classList.add("warning-message--hidden");
+  input.classList.remove("search-input--warning");
+
+  // The input.value can be used as input in the fetch call
+  fetchDictionary(input.value);
 }
 
-input.addEventListener("focus", function () {
-  warningMessage.style.display = "none";
-  input.classList.remove("search-box--warning");
-  input.classList.add("search-box--focus");
-});
-input.addEventListener("keydown", function () {
-  input.classList.remove("search-box--warning");
-  input.classList.remove("search-box--focus");
-});
+function handleSearchInputFocus() {
+  warningMessage.classList.add("warning-message--hidden");
+  input.classList.remove("search-input--warning");
+}
+
+function fetchDictionary(value) {
+  console.log("fetchDictionary", value);
+}
 
 // Select font-selection
 const customSelect = document.querySelector(".custom-select");
