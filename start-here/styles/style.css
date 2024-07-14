@@ -18,9 +18,9 @@
 
 /* top bar style */
 nav {
-  width: 60%;
   display: flex;
   justify-content: space-between;
+  padding-top: 24px;
 }
 
 /* Search bar style */
