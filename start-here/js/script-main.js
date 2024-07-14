@@ -61,13 +61,6 @@ function handleSearch() {
                 listOfMeanings.appendChild(li);
               });
 
-              if (meaning.partOfSpeech === "verb") {
-                const example = resultWrapper.querySelector(".example");
-                if (example) {
-                  example.querySelector("p").innerText =
-                    "“Keyboarding is the part of this job I hate the most.”";
-                }
-              }
             }
           });
 
