@@ -18,7 +18,6 @@ function handleSearch() {
     input.classList.add("search-box--warning");
   } else {
     warningMessage.style.display = "none";
-    input.classList.remove("search-box--warning");
     fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
       .then((response) => response.json())
       .then((data) => {
