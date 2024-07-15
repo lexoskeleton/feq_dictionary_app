@@ -83,3 +83,5 @@ function myFunction() {
   var element = document.body;
   element.classList.toggle("dark-mode");
  }
+ let checkbox = document.querySelector('input[type="checkbox"]');
+checkbox.addEventListener("click", myFunction);
