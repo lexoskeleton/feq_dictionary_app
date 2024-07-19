@@ -78,3 +78,11 @@ optionsList.forEach((option) => {
   }
   option.addEventListener("click", handler);
 });
+// Dark Mode Toggle//
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+const checkbox = document.querySelector("label.toggle input[type='checkbox']");
+checkbox.addEventListener("change", toggleDarkMode);
+
