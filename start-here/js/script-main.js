@@ -18,9 +18,20 @@ function handleSearch() {
     input.classList.add("search-box--warning");
   } else {
     warningMessage.style.display = "none";
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
+      .then((response) => response.json())
+      .then((data) => {
+       console.log("data", data)
+      })
+      .catch((error) => {
+        document.getElementById(
+          "title-wrapper"
+        ).innerHTML = `<p>An error occurred: ${error.message}</p>`;
+      });
     input.classList.remove("search-box--warning");
   }
 }
+
 
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
