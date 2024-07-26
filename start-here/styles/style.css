@@ -1,9 +1,41 @@
+
+/* toggle button styles start here */
+
+
+/* toggle button styles end here */
+
+/* dark mode theme starts here */
 :root {
   --warning-color: #ff5252;
   --primary-color: #a445ed;
   --light-grey-bg-color: #f4f4f4;
   --text-color-dark: #2d2d2d;
+  --bg-color: #fff;
+  --text-color: #000;
 }
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  --bg-color: #000;
+  --text-color: #fff;
+  --light-grey-bg-color: #3a3a3a;
+  --text-color-dark: #f2f2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --light-grey-bg-color: #3a3a3a;
+    --text-color-dark: #f2f2f2;
+  }
+}
+/* dark mode style ends here */
 
 /* top bar style */
 nav {
@@ -155,3 +187,29 @@ label[for="serif"] {
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
 }
+/* dark mode starts here */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg-color: #000;
+      --text-color: #fff;
+  }
+}
+
+/* dark mode theme ends here */
+
+/* light mode theme starts here */
+@media (prefers-color-scheme: light) {
+  :root {
+      --bg-color: #fff;
+      --text-color: #000;
+  }
+}
+/* light mode theme starts here */
+@media (prefers-color-scheme: light){
+  :root {
+--bg-color: #fff;
+--text-color: #000;
+}
+}
+
+/* light mode theme ends here */

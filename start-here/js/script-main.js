@@ -14,9 +14,24 @@ input.addEventListener("focus", handleSearchInputFocus);
 //Handle Search
 function handleSearchButtonClick() {
   if (input.value === "") {
+
     warningMessage.classList.remove("warning-message--hidden");
     input.classList.add("search-input--warning");
     return;
+    
+  } else {
+    warningMessage.style.display = "none";
+    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
+      .then((response) => response.json())
+      .then((data) => {
+       console.log("data", data)
+      })
+      .catch((error) => {
+        document.getElementById(
+          "title-wrapper"
+        ).innerHTML = `<p>An error occurred: ${error.message}</p>`;
+      });
+    input.classList.remove("search-box--warning");
   }
 
   warningMessage.classList.add("warning-message--hidden");
@@ -26,6 +41,7 @@ function handleSearchButtonClick() {
   fetchDictionary(input.value);
 }
 
+
 function handleSearchInputFocus() {
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
@@ -34,6 +50,17 @@ function handleSearchInputFocus() {
 function fetchDictionary(value) {
   console.log("fetchDictionary", value);
 }
+
+
+input.addEventListener("focus", function () {
+  warningMessage.style.display = "none";
+  input.classList.remove("search-box--warning");
+  input.classList.add("search-box--focus");
+});
+input.addEventListener("keydown", function () {
+  input.classList.remove("search-box--warning");
+  input.classList.remove("search-box--focus");
+});
 
 // Select font-selection
 const customSelect = document.querySelector(".custom-select");
@@ -81,3 +108,11 @@ optionsList.forEach((option) => {
   }
   option.addEventListener("click", handler);
 });
+// Dark Mode Toggle//
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+const checkbox = document.querySelector("label.toggle input[type='checkbox']");
+checkbox.addEventListener("change", toggleDarkMode);
+
