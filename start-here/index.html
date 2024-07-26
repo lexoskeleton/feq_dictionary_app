@@ -86,34 +86,35 @@
         </ul>
       </div>
       <label class="toggle" aria-label="Toggle theme">
-        <!-- <img src="path/to/moon-icon.png" alt="moon icon"> -->
+        <img src="./assets/images/icon-moon.svg" alt="moon icon" />
         <input type="checkbox" aria-label="Toggle option" />
         <span class="slider-button"></span>
       </label>
     </nav>
 
     <!-- Search Input Field -->
-    <div class="search-container_wrapper">
-      <div class="search-container">
+    <div class="search-container">
+      <div class="search-box">
         <input
           type="text"
           id="search-field"
-          class="search-box"
+          class="search-input"
           value=""
           placeholder="Search for any word..."
           required
-        />
+        >
         <!-- Search Icon -->
-        <a class="search-icon">
+        <div role="button" class="search-button">
           <img
-            width="15.5px"
-            height="15.5px"
+            width="16"
+            height="16"
             src="./assets/images/icon-search.svg"
             class="search-icon"
           />
-        </a>
+        </div>
+      </input>
       </div>
-      <p class="warning-message-hidden">Whoops, can't be empty...</p>
+      <p class="warning-message warning-message--hidden">Whoops, can't be empty...</p>
     </div>
 
     <!-- Results Div -->
