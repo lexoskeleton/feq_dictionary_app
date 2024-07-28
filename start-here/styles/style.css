@@ -20,6 +20,18 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+
+/* container style */
+.container {
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 0 24px;
+}
+
+.container ~ .container {
+  margin-top: 24px;
+}
+
 .dark-mode {
   --bg-color: #000;
   --text-color: #fff;
@@ -39,9 +51,9 @@ body {
 
 /* top bar style */
 nav {
-  width: 60%;
   display: flex;
   justify-content: space-between;
+  padding-top: 24px;
 }
 
 /* Search bar style */
