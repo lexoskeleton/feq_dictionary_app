@@ -6,6 +6,7 @@
   --text-color-dark: #2d2d2d;
   --bg-color: #fff;
   --text-color: #000;
+  --grey-color: #757575;
 }
 
 .toggle-wrapper {
@@ -245,4 +246,37 @@ label[for="mono"] {
 .horizontal-grey-line {
   display: flex;
   border-top: 1px solid var(--lines-light-grey);
+}
+
+.subtitle-light-grey {
+  color: var(--grey-color);
+}
+.underline-light-grey {
+  font-size: 14px;
+  color: var(--grey-color);
+  text-decoration: underline;
+}
+ul li {
+  margin: 0px;
+}
+li::marker {
+  color: var(--primary-color);
+}
+.list-of-meanings {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.synonyms_wrapper {
+  display: flex;
+}
+
+a {
+  color: var(--text-color-dark);
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 45, 45, 0.5);
+  font-size: 14px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
