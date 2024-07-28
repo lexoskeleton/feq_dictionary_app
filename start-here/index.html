@@ -42,6 +42,7 @@
             <path
               d="M1 33V5a4 4 0 0 1 4-4h26.8A1.2 1.2 0 0 1 33 2.2v26.228M5 29h28M5 37h28"
             />
+
             <path stroke-linejoin="round" d="M5 37a4 4 0 1 1 0-8" />
             <path d="M11 9h12" />
           </g>
@@ -79,72 +80,73 @@
             <li role="option">
               <input type="radio" id="serif" name="font-select" />
               <label for="serif">Serif</label>
-            </li>
-            <li role="option">
-              <input type="radio" id="mono" name="font-select" />
-              <label for="mono">Mono</label>
-            </li>
-          </ul>
-        </div>
-        <label class="toggle" aria-label="Toggle theme">
-          <!-- <img src="path/to/moon-icon.png" alt="moon icon"> -->
-          <input type="checkbox" aria-label="Toggle option" />
-          <span class="slider-button"></span>
-        </label>
-      </nav>
-    </div>
 
-    <div class="container">
-      <!-- Search Input Field -->
-      <div class="search-container_wrapper">
-        <div class="search-container">
-          <input
-            type="text"
-            id="search-field"
-            class="search-box"
-            value=""
-            placeholder="Search for any word..."
-            required
-          />
-          <!-- Search Icon -->
-          <a class="search-icon">
-            <img
-              width="15.5px"
-              height="15.5px"
-              src="./assets/images/icon-search.svg"
-              class="search-icon"
-            />
-          </a>
-        </div>
-        <p class="warning-message-hidden">Whoops, can't be empty...</p>
+          </li>
+          <li role="option">
+            <input type="radio" id="mono" name="font-select" />
+            <label for="mono">Mono</label>
+          </li>
+        </ul>
       </div>
-    </div>
-
-    <div class="container">
-      <!-- Results Div -->
-      <div>
-        <div class="title-wrapper">
-          <h1 class="title">Keyboard</h1>
-          <h2>/'kib':d/</h2>
-          <div class="audio-wrapper">
-            <audio src=""></audio>
-            <img
-              width="48px"
-              height="48px"
-              src="./assets/images/icon-play.svg"
-              alt="Play"
-            />
-          </div>
+      <label class="toggle" aria-label="Toggle theme">
+        <img src="./assets/images/icon-moon.svg" alt="moon icon" />
+        <input type="checkbox" aria-label="Toggle option" />
+        <span class="slider-button"></span>
+      </label>
+    </nav>
+   </div>
+    
+  <div class="container">
+    <!-- Search Input Field -->
+    <div class="search-container">
+      <div class="search-box">
+        <input
+          type="text"
+          id="search-field"
+          class="search-input"
+          value=""
+          placeholder="Search for any word..."
+          required
+        >
+        <!-- Search Icon -->
+        <div role="button" class="search-button">
+          <img
+            width="16"
+            height="16"
+            src="./assets/images/icon-search.svg"
+            class="search-icon"
+          />
         </div>
-        <div class="result-wrapper">
-          <div class="gramitical-type_wrapper">
-            <h3 class="gramitical-type-noun">noun</h3>
-          </div>
-          <div class="meaning-result_wrapper">
-            <h4>Meaning</h4>
-            <ul class="list-of-meanings">
-              <li>
-                (etc.) A set of keys used to operate a typewriter, computer etc.
+      </input>
+      </div>
+      <p class="warning-message warning-message--hidden">Whoops, can't be empty...</p>
+    </div>
+   </div>
+
+  <div class="container">
+    <!-- Results Div -->
+      <div class="title-wrapper">
+        <h1 class="title">Keyboard</h1>
+        <h2>/'kib':d/</h2>
+        <div class="audio-wrapper">
+          <audio src=""></audio>
+          <img
+            width="48px"
+            height="48px"
+            src="./assets/images/icon-play.svg"
+            alt="Play"
+          />
+        </div>
+      </div>
+      <div class="result-wrapper">
+        <div class="gramitical-type_wrapper">
+          <h3 class="gramitical-type-noun">noun</h3>
+        </div>
+        <div class="meaning-result_wrapper">
+          <h4>Meaning</h4>
+          <ul class="list-of-meanings">
+            <li>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
               </li>
               <li>
                 (etc.) A set of keys used to operate a typewriter, computer etc.
