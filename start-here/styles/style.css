@@ -221,3 +221,28 @@ label[for="serif"] {
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
 }
+
+/* results styles */
+.title-audio-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  text-transform: lowercase;
+}
+
+.phonetic-subtitle {
+  color: var(--primary-color);
+}
+.gramitical-type_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+}
+
+.horizontal-grey-line {
+  display: flex;
+  border-top: 1px solid var(--lines-light-grey);
+}
