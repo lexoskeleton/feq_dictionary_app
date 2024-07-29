@@ -12,74 +12,65 @@ searchButton.addEventListener("click", handleSearchButtonClick);
 input.addEventListener("focus", handleSearchInputFocus);
 
 //Handle Search
-function handleSearchButtonClick() {
+async function handleSearchButtonClick() {
   if (input.value === "") {
-
     warningMessage.classList.remove("warning-message--hidden");
     input.classList.add("search-input--warning");
     return;
-    
   } else {
     warningMessage.style.display = "none";
-    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.title) {
-          document.getElementById(
-            "title-wrapper"
-          ).innerHTML = `<p>No definition found for <strong>${input.value}</strong>.</p>`;
-        } else {
-          const meanings = data[0].meanings;
-          const phonetics = data[0].phonetics;
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
+    );
+    if (response.ok) {
+      const data = await response.json();
+      const meanings = data[0].meanings;
+      const phonetics = data[0].phonetics;
 
-          document.querySelector(".title").innerText = input.value;
+      document.querySelector(".title").innerText = input.value;
 
-          phonetics.forEach((phonetic) => {
-            if (phonetic.text) {
-              const h2 = document.querySelector("h2");
-              h2.innerText = phonetic.text;
+      phonetics.forEach((phonetic) => {
+        if (phonetic.text) {
+          const h2 = document.querySelector("h2");
+          h2.innerText = phonetic.text;
 
-              const audio = document.querySelector("audio");
-              audio.src = phonetic.audio;
-            }
-          });
-
-          const resultWrappers = document.querySelectorAll(".result-wrapper");
-          resultWrappers.forEach((resultWrapper, index) => {
-            const meaning = meanings[index];
-            if (meaning) {
-              const gramType = resultWrapper.querySelector(
-                ".gramitical-type_wrapper h3"
-              );
-              gramType.innerText = meaning.partOfSpeech;
-
-              const meaningResultWrapper = resultWrapper.querySelector(
-                ".meaning-result_wrapper"
-              );
-              const listOfMeanings =
-                meaningResultWrapper.querySelector(".list-of-meanings");
-              listOfMeanings.innerHTML = "";
-
-              meaning.definitions.forEach((definition) => {
-                const li = document.createElement("li");
-                li.innerText = definition.definition;
-                listOfMeanings.appendChild(li);
-              });
-
-            }
-          });
-
-          // Update source
-          const sourceDiv = document.querySelector("div > h4 + a");
-          sourceDiv.innerText = data[0].sourceUrls;
-          sourceDiv.href = data[0].sourceUrls;
+          const audio = document.querySelector("audio");
+          audio.src = phonetic.audio;
         }
-      })
-      .catch((error) => {
-        document.getElementById(
-          "title-wrapper"
-        ).innerHTML = `<p>An error occurred: ${error.message}</p>`;
       });
+
+      const resultWrappers = document.querySelectorAll(".result-wrapper");
+      resultWrappers.forEach((resultWrapper, index) => {
+        const meaning = meanings[index];
+        if (meaning) {
+          const gramType = resultWrapper.querySelector(
+            ".gramitical-type_wrapper h3"
+          );
+          gramType.innerText = meaning.partOfSpeech;
+
+          const meaningResultWrapper = resultWrapper.querySelector(
+            ".meaning-result_wrapper"
+          );
+          const listOfMeanings =
+            meaningResultWrapper.querySelector(".list-of-meanings");
+          listOfMeanings.innerHTML = "";
+
+          meaning.definitions.forEach((definition) => {
+            const li = document.createElement("li");
+            li.innerText = definition.definition;
+            listOfMeanings.appendChild(li);
+          });
+        }
+      });
+
+      // Update source
+      const sourceDiv = document.querySelector("div > h4 + a");
+      sourceDiv.innerText = data[0].sourceUrls;
+      sourceDiv.href = data[0].sourceUrls;
+    } else {
+      console.log("no definition found");
+    }
+
     input.classList.remove("search-box--warning");
   }
 
@@ -87,19 +78,17 @@ function handleSearchButtonClick() {
   input.classList.remove("search-input--warning");
 
   // The input.value can be used as input in the fetch call
-  fetchDictionary(input.value);
+  // fetchDictionary(input.value);
 }
-
 
 function handleSearchInputFocus() {
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
 }
 
-function fetchDictionary(value) {
-  console.log("fetchDictionary", value);
-}
-
+// function fetchDictionary(value) {
+//   console.log("fetchDictionary", value);
+// }
 
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
@@ -164,4 +153,3 @@ function toggleDarkMode() {
 
 const checkbox = document.querySelector("label.toggle input[type='checkbox']");
 checkbox.addEventListener("change", toggleDarkMode);
-
