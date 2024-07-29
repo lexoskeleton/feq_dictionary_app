@@ -6,6 +6,9 @@ const input = document.querySelector("#search-field");
 //Select button-search:
 const searchButton = document.querySelector(".search-button");
 
+const pronunciationAudio = document.querySelector("audio");
+const playImage = document.getElementById("play-image");
+
 //Add event listner to the search button
 searchButton.addEventListener("click", handleSearchButtonClick);
 
@@ -22,22 +25,22 @@ async function handleSearchButtonClick() {
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
     );
+    // need to check for 404 error
     if (response.ok) {
       const data = await response.json();
       const meanings = data[0].meanings;
-      const phonetics = data[0].phonetics;
+      const phonetics = data[0].phonetics[0];
 
       document.querySelector(".title").innerText = input.value;
 
-      phonetics.forEach((phonetic) => {
-        if (phonetic.text) {
-          const h2 = document.querySelector("h2");
-          h2.innerText = phonetic.text;
+      if (phonetics.text) {
+        // use specific selector
+        const h2 = document.querySelector(".phonetic-subtitle");
+        h2.innerText = phonetics.text;
 
-          const audio = document.querySelector("audio");
-          audio.src = phonetic.audio;
-        }
-      });
+        const audio = document.querySelector("audio");
+        audio.src = phonetics.audio;
+      }
 
       const resultWrappers = document.querySelectorAll(".result-wrapper");
       resultWrappers.forEach((resultWrapper, index) => {
@@ -150,6 +153,10 @@ optionsList.forEach((option) => {
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
+
+playImage.addEventListener("click", () => {
+  pronunciationAudio.play();
+});
 
 const checkbox = document.querySelector("label.toggle input[type='checkbox']");
 checkbox.addEventListener("change", toggleDarkMode);
