@@ -1,25 +1,55 @@
-
-/* toggle button styles start here */
-
-
-/* toggle button styles end here */
-
-/* dark mode theme starts here */
 :root {
   --warning-color: #ff5252;
   --primary-color: #a445ed;
   --light-grey-bg-color: #f4f4f4;
+  --lines-light-grey: #e9e9e9;
   --text-color-dark: #2d2d2d;
   --bg-color: #fff;
   --text-color: #000;
+  --grey-color: #757575;
 }
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+.toggle {
+  display: flex;
+  gap: 10px;
+  height: 32px;
+}
+
+/* light mode theme starts here */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #fff;
+    --text-color: #000;
+  }
+}
+/* light mode theme ends here */
+/* dark mode theme starts here */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --light-grey-bg-color: #3a3a3a;
+    --text-color-dark: #f2f2f2;
+  }
+}
+
+.dark-mode {
+  --bg-color: #000;
+  --text-color: #fff;
+  --light-grey-bg-color: #3a3a3a;
+  --text-color-dark: #f2f2f2;
+}
+/* dark mode style ends here */
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 /* container style */
 .container {
@@ -32,33 +62,26 @@ body {
   margin-top: 24px;
 }
 
-.dark-mode {
-  --bg-color: #000;
-  --text-color: #fff;
-  --light-grey-bg-color: #3a3a3a;
-  --text-color-dark: #f2f2f2;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #000;
-    --text-color: #fff;
-    --light-grey-bg-color: #3a3a3a;
-    --text-color-dark: #f2f2f2;
-  }
-}
-/* dark mode style ends here */
-
 /* top bar style */
 nav {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 24px;
+}
+
+.top-right-styling-menu {
   display: flex;
   justify-content: space-between;
-  padding-top: 24px;
+  gap: 6px;
+}
+
+.vertical-grey-line {
+  border-right: 1px solid var(--lines-light-grey);
 }
 
 /* Search bar style */
 .search-container {
-  width: 372px;
+  width: 100%;
 }
 
 .search-box {
@@ -124,8 +147,8 @@ nav {
 }
 
 .select-button {
-  width: 7.5rem;
-  padding: 0;
+  width: 100%;
+  padding: 0 10px 0;
   font-size: 1.15rem;
   background-color: #fff;
   border: none;
@@ -199,29 +222,61 @@ label[for="serif"] {
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
 }
-/* dark mode starts here */
-@media (prefers-color-scheme: dark) {
-  :root {
-      --bg-color: #000;
-      --text-color: #fff;
-  }
+
+/* results styles */
+.title-audio-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* dark mode theme ends here */
-
-/* light mode theme starts here */
-@media (prefers-color-scheme: light) {
-  :root {
-      --bg-color: #fff;
-      --text-color: #000;
-  }
-}
-/* light mode theme starts here */
-@media (prefers-color-scheme: light){
-  :root {
---bg-color: #fff;
---text-color: #000;
-}
+.title {
+  text-transform: lowercase;
 }
 
-/* light mode theme ends here */
+.phonetic-subtitle {
+  color: var(--primary-color);
+}
+.gramitical-type_wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+}
+
+.horizontal-grey-line {
+  display: flex;
+  border-top: 1px solid var(--lines-light-grey);
+}
+
+.subtitle-light-grey {
+  color: var(--grey-color);
+}
+.underline-light-grey {
+  font-size: 14px;
+  color: var(--grey-color);
+  text-decoration: underline;
+}
+ul li {
+  margin: 0px;
+}
+li::marker {
+  color: var(--primary-color);
+}
+.list-of-meanings {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.synonyms_wrapper {
+  display: flex;
+}
+
+a {
+  color: var(--text-color-dark);
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 45, 45, 0.5);
+  font-size: 14px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
