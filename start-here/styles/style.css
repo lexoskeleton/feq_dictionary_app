@@ -129,6 +129,7 @@ nav {
 .warning-message {
   color: var(--warning-color);
   font-size: 14px;
+  visibility: visible;
 }
 
 .warning-message--hidden {
@@ -279,4 +280,9 @@ a {
   display: flex;
   gap: 16px;
   align-items: center;
+}
+
+.example {
+  font-size: 18px;
+  color: var(--grey-color);
 }

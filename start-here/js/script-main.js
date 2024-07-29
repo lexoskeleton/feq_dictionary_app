@@ -6,10 +6,11 @@ const input = document.querySelector("#search-field");
 //Select button-search:
 const searchButton = document.querySelector(".search-button");
 
+// audio element and play image
 const pronunciationAudio = document.querySelector("audio");
 const playImage = document.getElementById("play-image");
 
-//Add event listner to the search button
+//Add event listener to the search button
 searchButton.addEventListener("click", handleSearchButtonClick);
 
 input.addEventListener("focus", handleSearchInputFocus);
@@ -18,10 +19,11 @@ input.addEventListener("focus", handleSearchInputFocus);
 async function handleSearchButtonClick() {
   if (input.value === "") {
     warningMessage.classList.remove("warning-message--hidden");
+    // add display: block to show a message
+    warningMessage.style.display = "block";
     input.classList.add("search-input--warning");
     return;
   } else {
-    warningMessage.style.display = "none";
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
     );
@@ -43,7 +45,16 @@ async function handleSearchButtonClick() {
       }
 
       const resultWrappers = document.querySelectorAll(".result-wrapper");
+
       resultWrappers.forEach((resultWrapper, index) => {
+        const meaningResultWrapper = resultWrapper.querySelector(
+          ".meaning-result_wrapper"
+        );
+
+        const listOfMeanings =
+          meaningResultWrapper.querySelector(".list-of-meanings");
+        listOfMeanings.innerHTML = "";
+
         const meaning = meanings[index];
         if (meaning) {
           const gramType = resultWrapper.querySelector(
@@ -51,18 +62,38 @@ async function handleSearchButtonClick() {
           );
           gramType.innerText = meaning.partOfSpeech;
 
-          const meaningResultWrapper = resultWrapper.querySelector(
-            ".meaning-result_wrapper"
-          );
-          const listOfMeanings =
-            meaningResultWrapper.querySelector(".list-of-meanings");
-          listOfMeanings.innerHTML = "";
-
           meaning.definitions.forEach((definition) => {
             const li = document.createElement("li");
-            li.innerText = definition.definition;
+            li.textContent = definition.definition;
+            if (definition.example) {
+              const example = document.createElement("div");
+              example.classList.add("example");
+              example.textContent = definition.example;
+              li.appendChild(example);
+            }
+            if (definition.synonyms.length) {
+              const synonyms = document.createElement("div");
+              synonyms.classList.add("subtitle-light-grey", "synonym");
+              synonyms.textContent = definition.synonyms.join(", ");
+              li.appendChild(synonyms);
+            }
+            if (definition.antonyms.length) {
+              const antonyms = document.createElement("div");
+              antonyms.classList.add("subtitle-light-grey", "antonym");
+              antonyms.textContent = definition.antonyms.join(", ");
+              li.appendChild(antonyms);
+            }
+
             listOfMeanings.appendChild(li);
           });
+          if (meaning.synonyms) {
+            const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+            synonyms.textContent = meaning.synonyms.join(", ");
+          }
+          if (meaning.antonyms) {
+            const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+            antonyms.textContent = meaning.antonyms.join(", ");
+          }
         }
       });
 
@@ -79,19 +110,12 @@ async function handleSearchButtonClick() {
 
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
-
-  // The input.value can be used as input in the fetch call
-  // fetchDictionary(input.value);
 }
 
 function handleSearchInputFocus() {
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
 }
-
-// function fetchDictionary(value) {
-//   console.log("fetchDictionary", value);
-// }
 
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
@@ -154,6 +178,7 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
+// add event listener to click play image
 playImage.addEventListener("click", () => {
   pronunciationAudio.play();
 });
