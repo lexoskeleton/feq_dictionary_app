@@ -39,9 +39,15 @@ async function handleSearchButtonClick() {
         // use specific selector
         const h2 = document.querySelector(".phonetic-subtitle");
         h2.innerText = phonetics.text;
-
-        const audio = document.querySelector("audio");
-        audio.src = phonetics.audio;
+        const audioWrapper = document.querySelector(".audio-wrapper");
+        // conditional play audio display
+        if (phonetics.audio.length) {
+          audioWrapper.style.display = "block";
+          const audio = document.querySelector("audio");
+          audio.src = phonetics.audio;
+        } else {
+          audioWrapper.style.display = "none";
+        }
       }
 
       const resultWrappers = document.querySelectorAll(".result-wrapper");
