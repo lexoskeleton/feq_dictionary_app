@@ -273,7 +273,7 @@ display: none;
   border-radius: 50%;
 }
 
-.checkbox-switch:before {
+.checkbox-switch::before {
   position: absolute;
   content: "";
   height: 26px;
@@ -288,11 +288,10 @@ display: none;
 .moon-icon {
   margin-left: 10px;
 }
+
 /* Styling the moon icon while checked */
-.moon-icon:after {
-  -webkit-mask-size: cover;
-    mask-size: cover;
-  background-color: #a445ed;
+.moon-icon::after {
+  mask-image: image(url('./assets/images/icon-moon.svg'), #a445ed),  linear-gradient(rgb(0 0 0 / 100%), transparent);
 }
 
 /* results styles */
