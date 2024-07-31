@@ -1,4 +1,4 @@
-//Message to cheange class if input is empty:
+//Message to change class if input is empty:
 const warningMessage = document.querySelector(".warning-message");
 
 //Select Input field to verify emptiness:
@@ -144,6 +144,7 @@ function handleFontChange(font) {
       throw new Error("Invalid font");
   }
 }
+
 // add event listener to list items
 optionsList.forEach((option) => {
   function handler(e) {
@@ -157,11 +158,12 @@ optionsList.forEach((option) => {
   }
   option.addEventListener("click", handler);
 });
-// Dark Mode Toggle//
+
+// Dark Mode Toggle event listener
 function toggleDarkMode() {
+
   document.body.classList.toggle("dark-mode");
 }
 
-const checkbox = document.querySelector("label.toggle input[type='checkbox']");
+const checkbox = document.querySelector("#toggle-switch");
 checkbox.addEventListener("change", toggleDarkMode);
-
