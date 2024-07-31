@@ -116,81 +116,6 @@ nav {
   right: 0;
 }
 
-/* dark mode toggle */
-.toggle-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.toggle-slider {
-  position: relative;
-  display: inline-block;
-  gap: 10px;
-  width: 42px;
-  height: 20px;
-  background-color: #757575;
-  border-radius: 30px;
-  border: 2px solid gray; 
-  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
-}
-
-/* After slide is enabled */
-.toggle-slider:after {
-  content: '';
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  top: 1px; 
-  left: 1px;
-  transition:  all 0.5s;
-  background-color: #a445ed;
-}
-
-/* Hides checkbox */
-input.checkbox-switch {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-}
-
-.checkbox-switch:checked + .toggle-slider {
-  background-color: #a445ed;
-}
-
-.checkbox-switch:checked + .toggle-slider:after {
-  transform: translateX(26px);
-}
-
-.checkbox-switch {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.checkbox-switch:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-/* Styling the moon icon while checked */
-.toggle-wrapper img {
-  background-color: #a445ed;
-}
-
 /* warning message */
 .warning-message {
   color: var(--warning-color);
@@ -287,6 +212,87 @@ label[for="serif"] {
 
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
+}
+
+/* dark mode toggle styling*/
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* toggle is off */
+.toggle-slider {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  gap: 10px;
+  width: 50px;
+  height: 22px;
+  background-color: #757575;
+  border-radius: 30px;
+  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+}
+
+/* After dark mode is enabled - toggle on */
+.toggle-slider::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 1px; 
+  left: 1px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+/* Hides checkbox */
+.checkbox-switch {
+display: none;
+}
+
+.checkbox-switch:checked + .toggle-slider {
+  background-color: #a445ed;
+}
+
+.checkbox-switch:checked + .toggle-slider::after {
+  transform: translateX(25px);
+}
+
+.checkbox-switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.checkbox-switch:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.moon-icon {
+  margin-left: 10px;
+}
+/* Styling the moon icon while checked */
+.moon-icon:after {
+  -webkit-mask-size: cover;
+    mask-size: cover;
+  background-color: #a445ed;
 }
 
 /* results styles */

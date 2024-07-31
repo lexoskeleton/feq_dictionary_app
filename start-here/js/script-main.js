@@ -162,11 +162,31 @@ optionsList.forEach((option) => {
 
 // Dark Mode Toggle Functionality
 // access toggle button
-const toggleBtn = document.querySelector("#toggle");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector("#toggle");
 
-function toggleDarkMode() {
+  function toggleDarkMode() {
+    if (toggleBtn.checked) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }
 
-  document.body.classList.toggle("dark-mode");
-}
+  // Check if the user's system prefers dark mode
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
-toggleBtn.addEventListener("change", toggleDarkMode);
+  if (prefersDarkMode.matches) {
+    body.classList.add("dark-mode");
+    toggleBtn.checked = true;
+  } 
+  
+  // add event listener for the toggle button
+  toggleBtn.addEventListener("change", function () {
+    if (toggleBtn.checked) {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  });
+});
