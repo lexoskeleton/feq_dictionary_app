@@ -1,3 +1,6 @@
+// To access the body of the page
+const body = document.querySelector("body");
+
 //Message to change class if input is empty:
 const warningMessage = document.querySelector(".warning-message");
 
@@ -90,7 +93,6 @@ function handleSearchButtonClick() {
   fetchDictionary(input.value);
 }
 
-
 function handleSearchInputFocus() {
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
@@ -99,7 +101,6 @@ function handleSearchInputFocus() {
 function fetchDictionary(value) {
   console.log("fetchDictionary", value);
 }
-
 
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
@@ -159,11 +160,13 @@ optionsList.forEach((option) => {
   option.addEventListener("click", handler);
 });
 
-// Dark Mode Toggle event listener
+// Dark Mode Toggle Functionality
+// access toggle button
+const toggleBtn = document.querySelector("#toggle");
+
 function toggleDarkMode() {
 
   document.body.classList.toggle("dark-mode");
 }
 
-const checkbox = document.querySelector("#toggle-switch");
-checkbox.addEventListener("change", toggleDarkMode);
+toggleBtn.addEventListener("change", toggleDarkMode);
