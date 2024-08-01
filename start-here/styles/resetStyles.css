@@ -68,16 +68,39 @@ h1 {
   font-size: 32px;
 }
 h2 {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: normal;
 }
 h3 {
   font-size: 18px;
   font-weight: bold;
-  font-style: italic;
 }
 h4 {
   font-size: 16px;
   font-weight: normal;
+}
+
+/* Tablet style */
+@media only screen and (min-width: 450px) {
+  p li {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+}
+
+/* Desktop style */
+@media only screen and (min-width: 769px) {
 }
 /* end of reset styles */
