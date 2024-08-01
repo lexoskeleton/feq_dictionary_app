@@ -272,12 +272,12 @@ display: none;
 }
 
 /* Styling the moon icon while checked */
-.checkbox-switch:checked + .moon-icon svg {
-  fill: #a445ed;
+.checkbox-switch:checked ~ .moon-icon path {
+  stroke: #a445ed;
 }
 
 /* Dark mode styling for the font options dropdown */
-.checkbox-switch:checked + .select-dropdown {
+.checkbox-switch:checked ~ ul.select-dropdown {
   background-color:#000;
   color: #fff;
 }
