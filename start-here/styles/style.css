@@ -15,32 +15,13 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* light mode theme starts here */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #fff;
-    --text-color: #000;
-  }
-}
-/* light mode theme ends here */
-
-/* dark mode theme starts here */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #000;
-    --text-color: #fff;
-    --light-grey-bg-color: #3a3a3a;
-    --text-color-dark: #f2f2f2;
-  }
-}
-
 .dark-mode {
   --bg-color: #000;
   --text-color: #fff;
   --light-grey-bg-color: #3a3a3a;
   --text-color-dark: #f2f2f2;
+  --icon-color:#a445ed;
 }
-/* dark mode theme ends here */
 
 /* container style */
 .container {
@@ -86,6 +67,7 @@ nav {
   border: 1px solid transparent;
   border-radius: 16px;
   font-size: 14px;
+  font-weight: bold;
   /* Adds space for input content */
   padding: 0 48px 0 16px;
   border: none;
@@ -215,6 +197,7 @@ label[for="mono"] {
 }
 
 /* dark mode toggle styling*/
+
 .toggle-wrapper {
   display: flex;
   align-items: center;
@@ -226,7 +209,7 @@ label[for="mono"] {
   display: inline-block;
   cursor: pointer;
   gap: 10px;
-  width: 50px;
+  width: 46px;
   height: 20px;
   background-color: #757575;
   border-radius: 30px;
@@ -289,9 +272,14 @@ display: none;
 }
 
 /* Styling the moon icon while checked */
-.checkbox-switch:checked + .moon-icon::after {
-  /* background-color: #a445ed; */
-  filter: invert(34%) sepia(78%) saturate(1406%) hue-rotate(250deg) brightness(92%) contrast(102%);
+.checkbox-switch:checked + .moon-icon svg {
+  fill: #a445ed;
+}
+
+/* Dark mode styling for the font options dropdown */
+.checkbox-switch:checked + .select-dropdown {
+  background-color:#000;
+  color: #fff;
 }
 
 /* results styles */
