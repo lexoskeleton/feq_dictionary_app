@@ -218,7 +218,6 @@ label[for="mono"] {
 .toggle-wrapper {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 /* toggle is off */
@@ -228,7 +227,7 @@ label[for="mono"] {
   cursor: pointer;
   gap: 10px;
   width: 50px;
-  height: 22px;
+  height: 20px;
   background-color: #757575;
   border-radius: 30px;
   box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
@@ -240,8 +239,8 @@ label[for="mono"] {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: 1px; 
-  left: 1px;
+  top: 0px; 
+  left: 0px;
   background-color: #ccc;
   border-radius: 50%;
   transition: all 0.3s;
@@ -290,8 +289,9 @@ display: none;
 }
 
 /* Styling the moon icon while checked */
-.moon-icon::after {
-  mask-image: image(url('./assets/images/icon-moon.svg'), #a445ed),  linear-gradient(rgb(0 0 0 / 100%), transparent);
+.checkbox-switch:checked + .moon-icon::after {
+  /* background-color: #a445ed; */
+  filter: invert(34%) sepia(78%) saturate(1406%) hue-rotate(250deg) brightness(92%) contrast(102%);
 }
 
 /* results styles */

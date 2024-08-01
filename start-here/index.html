@@ -7,7 +7,13 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="./assets/images/dictionary-favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/dictionary-favicon-16x16.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -89,12 +95,25 @@
           </div>
           <span class="vertical-grey-line"></span>
 
+          <!-- dark mode toggle -->
           <div class="toggle-wrapper">
-            <label class="toggle" aria-label="Toggle theme">
-              <img src="./assets/images/icon-moon.svg" alt="moon icon" />
-              <input type="checkbox" aria-label="Toggle option" />
-              <span class="slider-button"></span>
+            <input
+              type="checkbox"
+              class="checkbox-switch"
+              id="toggle"
+              aria-label="Toggle option"
+            />
+            <label
+              for="toggle"
+              class="toggle-slider dark-mode"
+              aria-label="Toggle theme"
+            >
             </label>
+            <img
+              src="./assets/images/icon-moon.svg"
+              class="moon-icon"
+              alt="moon icon"
+            />
           </div>
         </div>
       </nav>
