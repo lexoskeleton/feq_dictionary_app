@@ -42,94 +42,94 @@
             <path
               d="M1 33V5a4 4 0 0 1 4-4h26.8A1.2 1.2 0 0 1 33 2.2v26.228M5 29h28M5 37h28"
             />
-
             <path stroke-linejoin="round" d="M5 37a4 4 0 1 1 0-8" />
             <path d="M11 9h12" />
           </g>
         </svg>
-      <div class="top-right-styling-menu">
-        <!-- font selector -->
-        <div class="custom-select">
-          <button
-            class="select-button"
-            role="combobox"
-            aria-labelledby="select button"
-            aria-haspopup="listbox"
-            aria-expanded="false"
-            aria-controls="select-dropdown"
-          >
-            <span class="selected-value">Sans Serif</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="8"
-              viewBox="0 0 14 8"
+        <div class="top-right-styling-menu">
+          <!-- font selector -->
+          <div class="custom-select">
+            <button
+              class="select-button"
+              role="combobox"
+              aria-labelledby="select button"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="select-dropdown"
             >
-              <path
-                fill="none"
-                stroke="#A445ED"
-                stroke-width="1.5"
-                d="m1 1 6 6 6-6"
-              />
-            </svg>
-          </button>
-          <ul class="select-dropdown" role="listbox">
-            <li role="option">
-              <input type="radio" id="sans-serif" name="font-select" />
-              <label for="sans-serif">Sans Serif</label>
-            </li>
-            <li role="option">
-              <input type="radio" id="serif" name="font-select" />
-              <label for="serif">Serif</label>
+              <span class="selected-value">Sans Serif</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="8"
+                viewBox="0 0 14 8"
+              >
+                <path
+                  fill="none"
+                  stroke="#A445ED"
+                  stroke-width="1.5"
+                  d="m1 1 6 6 6-6"
+                />
+              </svg>
+            </button>
+            <ul class="select-dropdown" role="listbox">
+              <li role="option">
+                <input type="radio" id="sans-serif" name="font-select" />
+                <label for="sans-serif">Sans Serif</label>
+              </li>
+              <li role="option">
+                <input type="radio" id="serif" name="font-select" />
+                <label for="serif">Serif</label>
+              </li>
+              <li role="option">
+                <input type="radio" id="mono" name="font-select" />
+                <label for="mono">Mono</label>
+              </li>
+            </ul>
+          </div>
+          <span class="vertical-grey-line"></span>
 
-          </li>
-          <li role="option">
-            <input type="radio" id="mono" name="font-select" />
-            <label for="mono">Mono</label>
-          </li>
-        </ul>
-      </div>
-      <span class="vertical-grey-line"></span>
-      <div class="toggle-wrapper">
-      <label class="toggle" aria-label="Toggle theme">
-        <img src="./assets/images/icon-moon.svg" alt="moon icon" />
-        <input type="checkbox" aria-label="Toggle option" />
-        <span class="slider-button"></span>
-      </label>
-    
-      </div>
-      </nav>
-   </div>
-    
-  <div class="container">
-    <!-- Search Input Field -->
-    <div class="search-container">
-      <div class="search-box">
-        <input
-          type="text"
-          id="search-field"
-          class="search-input"
-          value=""
-          placeholder="Search for any word..."
-          required
-        />
-        <!-- Search Icon -->
-        <div role="button" class="search-button">
-          <img
-            width="16"
-            height="16"
-            src="./assets/images/icon-search.svg"
-            class="search-icon"
-          />
+          <div class="toggle-wrapper">
+            <label class="toggle" aria-label="Toggle theme">
+              <img src="./assets/images/icon-moon.svg" alt="moon icon" />
+              <input type="checkbox" aria-label="Toggle option" />
+              <span class="slider-button"></span>
+            </label>
+          </div>
         </div>
-        
-      </div>
-      <p class="warning-message warning-message--hidden">Whoops, can't be empty...</p>
+      </nav>
     </div>
-   </div>
 
     <div class="container">
-    <!-- Results Div -->
+      <!-- Search Input Field -->
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            id="search-field"
+            class="search-input"
+            value=""
+            placeholder="Search for any word..."
+            required
+          />
+          <!-- Search Icon -->
+          <div role="button" class="search-button">
+            <img
+              width="16"
+              height="16"
+              src="./assets/images/icon-search.svg"
+              class="search-icon"
+            />
+          </div>
+        </div>
+        <p class="warning-message warning-message--hidden">
+          Whoops, can't be empty...
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Results Div -->
       <div class="title-audio-wrapper">
         <div class="title-wrapper">
           <h1 class="title">Keyboard</h1>
@@ -144,9 +144,11 @@
             height="48px"
             src="./assets/images/icon-play.svg"
             alt="Play"
+            class="play-button"
           />
         </div>
       </div>
+
       <div class="result-wrapper">
         <div class="gramitical-type_wrapper">
           <h3 class="gramitical-type-noun">noun</h3>
@@ -155,9 +157,6 @@
         <div class="meaning-result_wrapper">
           <h4 class="subtitle-light-grey">Meaning</h4>
           <ul class="list-of-meanings">
-            <li>
-              (etc.) A set of keys used to operate a typewriter, computer etc.
-              </li>
               <li>
                 (etc.) A set of keys used to operate a typewriter, computer etc.
               </li>
@@ -189,14 +188,32 @@
             </ul>
           </div>
         </div>
-        <div>
+      </div>
+      <div class="result-wrapper">
+        <div class="gramitical-type_wrapper">
+          <h3 class="gramitical-type-verb">verb</h3>
+          <span class="horizontal-grey-line"></span>
+        </div>
+        <div class="meaning-result_wrapper">
+          <h4 class="subtitle-light-grey">Meaning</h4>
+          <ul class="list-of-meanings">
+            <li>To type on a computer keyboard.</li>
+          </ul>
+        </div>
+        <div class="example">
+          <p>“Keyboarding is the part of this job I hate the most.”</p>
+        </div>
+      </div>
+      <div class="underline-section-wrapper">
+        <span class="horizontal-grey-line"></span>
+        <div class="source-wrapper">
           <h4 class="underline-light-grey">Source</h4>
 
-          <a href="https://en.wiktionary.org/wiki/keyboard"  target="_blank"
+          <a href="https://en.wiktionary.org/wiki/keyboard" target="_blank"
             >https://en.wiktionary.org/wiki/keyboard
             <img
-              width="12px"
-              height="12px"
+              width="14px"
+              height="14px"
               src="./assets/images/icon-new-window.svg"
               alt="Play"
             />
