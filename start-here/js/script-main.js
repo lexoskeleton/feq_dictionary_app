@@ -108,7 +108,21 @@ async function handleSearchButtonClick() {
       sourceDiv.innerText = data[0].sourceUrls;
       sourceDiv.href = data[0].sourceUrls;
     } else {
-      console.log("no definition found");
+      const resultContainer = document.querySelectorAll(".container")[2];
+      resultContainer.innerHTML = "";
+      const errorContainer = document.createElement("div");
+      errorContainer.classList.add("error-container");
+      const smile = document.createElement("span");
+      smile.textContent = "😕";
+      const title = document.createElement("h3");
+      title.textContent = "No Definitions Found";
+      const message = document.createElement("p");
+      message.textContent = `Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.`;
+
+      errorContainer.appendChild(smile);
+      errorContainer.appendChild(title);
+      errorContainer.appendChild(message);
+      resultContainer.appendChild(errorContainer);
     }
 
     input.classList.remove("search-box--warning");

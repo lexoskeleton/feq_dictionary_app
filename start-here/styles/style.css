@@ -298,3 +298,36 @@ a {
   font-size: 18px;
   color: var(--grey-color);
 }
+
+/* no results message styles */
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+}
+
+.error-container span {
+  font-size: 4rem;
+}
+
+.error-container h3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #2d2d2d;
+}
+
+.error-container p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #757575;
+}
