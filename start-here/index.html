@@ -128,7 +128,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div id="all-results" class="container">
       <!-- Results Div -->
       <div class="title-audio-wrapper">
         <div class="title-wrapper">
@@ -137,7 +137,9 @@
         </div>
         <div class="audio-wrapper">
           <!-- add strting audio -->
-          <audio src="https://api.dictionaryapi.dev/media/pronunciations/en/keyboard-us.mp3"></audio>
+          <audio
+            src="https://api.dictionaryapi.dev/media/pronunciations/en/keyboard-us.mp3"
+          ></audio>
           <img
             id="play-image"
             width="48px"
@@ -157,36 +159,18 @@
         <div class="meaning-result_wrapper">
           <h4 class="subtitle-light-grey">Meaning</h4>
           <ul class="list-of-meanings">
-              <li>
-                (etc.) A set of keys used to operate a typewriter, computer etc.
-              </li>
-            </ul>
-          </div>
-          <div class="synonyms_wrapper">
-            <h4 class="subtitle-light-grey" id="synonyms">Synonyms</h4>
-            <p>electronic keyboard</p>
-          </div>
-          <div class="antonyms_wrapper">
-            <h4 class="subtitle-light-grey" id="antonyms">Antonyms</h4>
-            <p></p>
-          </div>
+            <li>
+              (etc.) A set of keys used to operate a typewriter, computer etc.
+            </li>
+          </ul>
         </div>
-        <div class="result-wrapper">
-          <div class="gramitical-type_wrapper">
-            <h3 class="gramitical-type-verb">verb</h3>
-            <span class="horizontal-grey-line"></span>
-          </div>
-          <div class="meaning-result_wrapper">
-            <h4 class="subtitle-light-grey">Meaning</h4>
-            <ul class="list-of-meanings">
-              <li>
-                To type on a computer keyboard.
-                <div class="example">
-                  <p>“Keyboarding is the part of this job I hate the most.”</p>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <div class="synonyms_wrapper">
+          <h4 class="subtitle-light-grey" id="synonyms">Synonyms</h4>
+          <p>electronic keyboard</p>
+        </div>
+        <div class="antonyms_wrapper">
+          <h4 class="subtitle-light-grey" id="antonyms">Antonyms</h4>
+          <p></p>
         </div>
       </div>
       <div class="result-wrapper">
@@ -197,11 +181,13 @@
         <div class="meaning-result_wrapper">
           <h4 class="subtitle-light-grey">Meaning</h4>
           <ul class="list-of-meanings">
-            <li>To type on a computer keyboard.</li>
+            <li>
+              To type on a computer keyboard.
+              <div class="example">
+                <p>“Keyboarding is the part of this job I hate the most.”</p>
+              </div>
+            </li>
           </ul>
-        </div>
-        <div class="example">
-          <p>“Keyboarding is the part of this job I hate the most.”</p>
         </div>
       </div>
       <div class="underline-section-wrapper">
@@ -220,6 +206,16 @@
           </a>
         </div>
       </div>
+    </div>
+
+    <div id="error-container" class="hidden error-container">
+      <span>😕</span>
+      <h3>No Definitions Found</h3>
+      <p>
+        Sorry pal, we couldn't find definitions for the word you were looking
+        for. You can try the search again at later time or head to the web
+        instead.
+      </p>
     </div>
   </body>
   <script src="./js/script-main.js"></script>

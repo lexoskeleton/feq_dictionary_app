@@ -9,6 +9,10 @@
   --grey-color: #757575;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .toggle-wrapper {
   display: flex;
   align-items: center;
