@@ -76,6 +76,10 @@ nav {
   border: 1px solid var(--primary-color);
 }
 
+.dark-mode .search-input {
+  color:#ffffff
+}
+
 /* to be toggle by warning message */
 .search-input--warning {
   border: 1px solid var(--warning-color);
@@ -273,16 +277,6 @@ display: none;
 .checkbox-switch:checked ~ .moon-icon path {
   stroke: #a445ed;
 }
-
-/* Dark mode styling for the font options dropdown */
-/* ul.custom-select ~ .checkbox-switch:checked{
-  background-color:#000;
-  color: #fff;
-}
-ul.custom-select:active ~ .checkbox-switch:checked{
-  background-color:#000;
-  color: #fff;
-} */
 
 /* results styles */
 .title-audio-wrapper {
