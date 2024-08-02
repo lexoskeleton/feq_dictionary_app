@@ -372,7 +372,8 @@ li::marker {
   flex-direction: column;
   gap: 13px;
 }
-.synonyms_wrapper {
+.synonyms_wrapper,
+.antonyms_wrapper {
   display: flex;
   padding-top: 24px;
   gap: 32px;

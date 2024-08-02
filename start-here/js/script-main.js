@@ -42,6 +42,9 @@ async function handleSearchButtonClick() {
 
   // need to check for 404 error
   if (response.ok) {
+    allResultsContainer.classList.remove("hidden");
+    errorContainer.classList.add("hidden");
+
     const data = await response.json();
     const meanings = data[0].meanings;
     const phonetics = data[0].phonetics[0];
@@ -87,7 +90,7 @@ async function handleSearchButtonClick() {
           if (definition.example) {
             const example = document.createElement("div");
             example.classList.add("example");
-            example.textContent = definition.example;
+            example.textContent = `"${definition.example}"`;
             li.appendChild(example);
           }
           if (definition.synonyms.length) {
@@ -108,21 +111,24 @@ async function handleSearchButtonClick() {
         if (meaning.synonyms && meaning.synonyms.length > 0) {
           const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
           synonyms.textContent = meaning.synonyms.join(", ");
+        } else {
+          const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+          synonyms.textContent = "";
         }
         if (meaning.antonyms && meaning.antonyms.length > 0) {
           const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
           antonyms.textContent = meaning.antonyms.join(", ");
+        } else {
+          const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+          antonyms.textContent = "";
         }
       }
     });
 
     // Update source
-    const sourceDiv = document.querySelector("div > h4 + a");
+    const sourceDiv = document.getElementById("source");
     sourceDiv.innerText = data[0].sourceUrls;
     sourceDiv.href = data[0].sourceUrls;
-
-    allResultsContainer.classList.remove("hidden");
-    errorContainer.classList.add("hidden");
   } else {
     allResultsContainer.classList.add("hidden");
     errorContainer.classList.remove("hidden");
