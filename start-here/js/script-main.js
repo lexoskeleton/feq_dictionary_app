@@ -12,6 +12,12 @@ const playImage = document.getElementById("play-image");
 
 //Add event listener to the search button
 searchButton.addEventListener("click", handleSearchButtonClick);
+input.addEventListener("keyup", function (e) {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    searchButton.click();
+  }
+});
 
 input.addEventListener("focus", handleSearchInputFocus);
 
