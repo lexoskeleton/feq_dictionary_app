@@ -92,7 +92,7 @@ async function handleSearchButtonClick() {
 
             listOfMeanings.appendChild(li);
           });
-          if (meaning.synonyms) {
+          if (meaning.synonyms.length) {
             const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
             synonyms.textContent = meaning.synonyms.join(", ");
           }
@@ -200,6 +200,7 @@ function toggleDarkMode() {
 
 // add event listener to click play image
 playImage.addEventListener("click", () => {
+  console.log(pronunciationAudio);
   pronunciationAudio.play();
 });
 
