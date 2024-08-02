@@ -9,32 +9,10 @@
   --grey-color: #757575;
 }
 
-.toggle-wrapper {
-  display: flex;
-  align-items: center;
-}
-.toggle {
-  display: flex;
-  gap: 10px;
-  height: 32px;
-}
-
-/* light mode theme starts here */
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-color: #fff;
-    --text-color: #000;
-  }
-}
-/* light mode theme ends here */
-/* dark mode theme starts here */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #000;
-    --text-color: #fff;
-    --light-grey-bg-color: #3a3a3a;
-    --text-color-dark: #f2f2f2;
-  }
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .dark-mode {
@@ -42,13 +20,6 @@
   --text-color: #fff;
   --light-grey-bg-color: #3a3a3a;
   --text-color-dark: #f2f2f2;
-}
-/* dark mode style ends here */
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
 }
 
 /* container style */
@@ -95,6 +66,7 @@ nav {
   border: 1px solid transparent;
   border-radius: 16px;
   font-size: 14px;
+  font-weight: bold;
   /* Adds space for input content */
   padding: 0 48px 0 16px;
   border: none;
@@ -102,6 +74,10 @@ nav {
 
 .search-input:focus {
   border: 1px solid var(--primary-color);
+}
+
+.dark-mode .search-input {
+  color:#ffffff
 }
 
 /* to be toggle by warning message */
@@ -234,6 +210,85 @@ label[for="serif"] {
 
 label[for="mono"] {
   font-family: "Inconsolata", monospace;
+}
+
+/* dark mode toggle styling*/
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* toggle is off */
+.toggle-slider {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+  width: 46px;
+  height: 20px;
+  background-color: #757575;
+  border-radius: 30px;
+}
+
+/* After dark mode is enabled - toggle on */
+.toggle-slider::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 2px; 
+  left: 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+/* Hides checkbox */
+.checkbox-switch {
+display: none;
+}
+
+.checkbox-switch:checked + .toggle-slider {
+  background-color: #a445ed;
+}
+
+.checkbox-switch:checked + .toggle-slider::after {
+  transform: translateX(24px);
+}
+
+.checkbox-switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.checkbox-switch::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.moon-icon {
+  margin-left: 10px;
+}
+
+/* Styling the moon icon while checked */
+.checkbox-switch:checked ~ .moon-icon path {
+  stroke: #a445ed;
 }
 
 /* results styles */

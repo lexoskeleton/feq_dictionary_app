@@ -7,7 +7,13 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="./assets/images/dictionary-favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/dictionary-favicon-16x16.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +25,7 @@
     <link rel="stylesheet" href="./styles/resetStyles.css" />
     <link rel="stylesheet" href="./styles/style.css" />
 
-    <title>Dev Divas | Dictionary web app</title>
+    <title>Dev Divas | Dictionary Web App</title>
   </head>
 
   <body>
@@ -89,12 +95,37 @@
           </div>
           <span class="vertical-grey-line"></span>
 
+          <!-- dark mode toggle -->
           <div class="toggle-wrapper">
-            <label class="toggle" aria-label="Toggle theme">
-              <img src="./assets/images/icon-moon.svg" alt="moon icon" />
-              <input type="checkbox" aria-label="Toggle option" />
-              <span class="slider-button"></span>
+            <input
+              type="checkbox"
+              class="checkbox-switch"
+              id="toggle"
+              aria-label="Toggle option"
+            />
+            <label
+              for="toggle"
+              class="toggle-slider dark-mode"
+              aria-label="Toggle theme"
+            >
             </label>
+            <div class="moon-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+              >
+                <path
+                  fill="none"
+                  stroke="#838383"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M1 10.449a10.544 10.544 0 0 0 19.993 4.686C11.544 15.135 6.858 10.448 6.858 1A10.545 10.545 0 0 0 1 10.449Z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </nav>
