@@ -127,8 +127,8 @@ async function handleSearchButtonClick() {
 
     // Update source
     const sourceDiv = document.getElementById("source");
-    sourceDiv.innerText = data[0].sourceUrls;
-    sourceDiv.href = data[0].sourceUrls;
+    sourceDiv.innerText = data[0].sourceUrls[0];
+    sourceDiv.href = data[0].sourceUrls[0];
   } else {
     allResultsContainer.classList.add("hidden");
     errorContainer.classList.remove("hidden");
