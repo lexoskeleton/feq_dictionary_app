@@ -9,6 +9,38 @@
   --grey-color: #757575;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+}
+.toggle {
+  display: flex;
+  gap: 10px;
+  height: 32px;
+}
+
+/* light mode theme starts here */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #fff;
+    --text-color: #000;
+  }
+}
+/* light mode theme ends here */
+/* dark mode theme starts here */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --light-grey-bg-color: #3a3a3a;
+    --text-color-dark: #f2f2f2;
+  }
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -77,7 +109,7 @@ nav {
 }
 
 .dark-mode .search-input {
-  color:#ffffff
+  color: #ffffff;
 }
 
 /* to be toggle by warning message */
@@ -237,7 +269,7 @@ label[for="mono"] {
   position: absolute;
   width: 16px;
   height: 16px;
-  top: 2px; 
+  top: 2px;
   left: 2px;
   background-color: #ffffff;
   border-radius: 50%;
@@ -246,7 +278,7 @@ label[for="mono"] {
 
 /* Hides checkbox */
 .checkbox-switch {
-display: none;
+  display: none;
 }
 
 .checkbox-switch:checked + .toggle-slider {
@@ -265,8 +297,8 @@ display: none;
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -277,8 +309,8 @@ display: none;
   width: 26px;
   left: 4px;
   bottom: 4px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -340,7 +372,8 @@ li::marker {
   flex-direction: column;
   gap: 13px;
 }
-.synonyms_wrapper {
+.synonyms_wrapper,
+.antonyms_wrapper {
   display: flex;
   padding-top: 24px;
   gap: 32px;
