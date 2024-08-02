@@ -6,100 +6,142 @@ const input = document.querySelector("#search-field");
 //Select button-search:
 const searchButton = document.querySelector(".search-button");
 
-//Add event listner to the search button
+// audio element and play image
+const pronunciationAudio = document.querySelector("audio");
+const playImage = document.getElementById("play-image");
+
+//Add event listener to the search button
 searchButton.addEventListener("click", handleSearchButtonClick);
+input.addEventListener("keyup", function (e) {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    searchButton.click();
+  }
+});
 
 input.addEventListener("focus", handleSearchInputFocus);
 
 //Handle Search
-function handleSearchButtonClick() {
+async function handleSearchButtonClick() {
   if (input.value === "") {
-
     warningMessage.classList.remove("warning-message--hidden");
+    // add display: block to show a message
+    warningMessage.style.display = "block";
     input.classList.add("search-input--warning");
     return;
-    
   } else {
-    warningMessage.style.display = "none";
-    fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`)
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.title) {
-          document.getElementById(
-            "title-wrapper"
-          ).innerHTML = `<p>No definition found for <strong>${input.value}</strong>.</p>`;
+    const response = await fetch(
+      `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
+    );
+    // need to check for 404 error
+    if (response.ok) {
+      const data = await response.json();
+      const meanings = data[0].meanings;
+      const phonetics = data[0].phonetics[0];
+
+      document.querySelector(".title").innerText = input.value;
+
+      if (phonetics.text) {
+        // use specific selector
+        const h2 = document.querySelector(".phonetic-subtitle");
+        h2.innerText = phonetics.text;
+        const audioWrapper = document.querySelector(".audio-wrapper");
+        // conditional play audio display
+        if (phonetics.audio.length) {
+          audioWrapper.style.display = "block";
+          const audio = document.querySelector("audio");
+          audio.src = phonetics.audio;
         } else {
-          const meanings = data[0].meanings;
-          const phonetics = data[0].phonetics;
-
-          document.querySelector(".title").innerText = input.value;
-
-          phonetics.forEach((phonetic) => {
-            if (phonetic.text) {
-              const h2 = document.querySelector("h2");
-              h2.innerText = phonetic.text;
-
-              const audio = document.querySelector("audio");
-              audio.src = phonetic.audio;
-            }
-          });
-
-          const resultWrappers = document.querySelectorAll(".result-wrapper");
-          resultWrappers.forEach((resultWrapper, index) => {
-            const meaning = meanings[index];
-            if (meaning) {
-              const gramType = resultWrapper.querySelector(
-                ".gramitical-type_wrapper h3"
-              );
-              gramType.innerText = meaning.partOfSpeech;
-
-              const meaningResultWrapper = resultWrapper.querySelector(
-                ".meaning-result_wrapper"
-              );
-              const listOfMeanings =
-                meaningResultWrapper.querySelector(".list-of-meanings");
-              listOfMeanings.innerHTML = "";
-
-              meaning.definitions.forEach((definition) => {
-                const li = document.createElement("li");
-                li.innerText = definition.definition;
-                listOfMeanings.appendChild(li);
-              });
-
-            }
-          });
-
-          // Update source
-          const sourceDiv = document.querySelector("div > h4 + a");
-          sourceDiv.innerText = data[0].sourceUrls;
-          sourceDiv.href = data[0].sourceUrls;
+          audioWrapper.style.display = "none";
         }
-      })
-      .catch((error) => {
-        document.getElementById(
-          "title-wrapper"
-        ).innerHTML = `<p>An error occurred: ${error.message}</p>`;
+      }
+
+      const resultWrappers = document.querySelectorAll(".result-wrapper");
+
+      resultWrappers.forEach((resultWrapper, index) => {
+        const meaningResultWrapper = resultWrapper.querySelector(
+          ".meaning-result_wrapper"
+        );
+
+        const listOfMeanings =
+          meaningResultWrapper.querySelector(".list-of-meanings");
+        listOfMeanings.innerHTML = "";
+
+        const meaning = meanings[index];
+        if (meaning) {
+          const gramType = resultWrapper.querySelector(
+            ".gramitical-type_wrapper h3"
+          );
+          gramType.innerText = meaning.partOfSpeech;
+
+          meaning.definitions.forEach((definition) => {
+            const li = document.createElement("li");
+            li.textContent = definition.definition;
+            if (definition.example) {
+              const example = document.createElement("div");
+              example.classList.add("example");
+              example.textContent = definition.example;
+              li.appendChild(example);
+            }
+            if (definition.synonyms.length) {
+              const synonyms = document.createElement("div");
+              synonyms.classList.add("subtitle-light-grey", "synonym");
+              synonyms.textContent = definition.synonyms.join(", ");
+              li.appendChild(synonyms);
+            }
+            if (definition.antonyms.length) {
+              const antonyms = document.createElement("div");
+              antonyms.classList.add("subtitle-light-grey", "antonym");
+              antonyms.textContent = definition.antonyms.join(", ");
+              li.appendChild(antonyms);
+            }
+
+            listOfMeanings.appendChild(li);
+          });
+          if (meaning.synonyms) {
+            const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+            synonyms.textContent = meaning.synonyms.join(", ");
+          }
+          if (meaning.antonyms) {
+            const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+            antonyms.textContent = meaning.antonyms.join(", ");
+          }
+        }
       });
+
+      // Update source
+      const sourceDiv = document.querySelector("div > h4 + a");
+      sourceDiv.innerText = data[0].sourceUrls;
+      sourceDiv.href = data[0].sourceUrls;
+    } else {
+      const resultContainer = document.querySelectorAll(".container")[2];
+      resultContainer.innerHTML = "";
+      const errorContainer = document.createElement("div");
+      errorContainer.classList.add("error-container");
+      const smile = document.createElement("span");
+      smile.textContent = "😕";
+      const title = document.createElement("h3");
+      title.textContent = "No Definitions Found";
+      const message = document.createElement("p");
+      message.textContent = `Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.`;
+
+      errorContainer.appendChild(smile);
+      errorContainer.appendChild(title);
+      errorContainer.appendChild(message);
+      resultContainer.appendChild(errorContainer);
+    }
+
     input.classList.remove("search-box--warning");
   }
 
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
-
-  // The input.value can be used as input in the fetch call
-  fetchDictionary(input.value);
 }
-
 
 function handleSearchInputFocus() {
   warningMessage.classList.add("warning-message--hidden");
   input.classList.remove("search-input--warning");
 }
-
-function fetchDictionary(value) {
-  console.log("fetchDictionary", value);
-}
-
 
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
@@ -162,6 +204,10 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
+// add event listener to click play image
+playImage.addEventListener("click", () => {
+  pronunciationAudio.play();
+});
+
 const checkbox = document.querySelector("label.toggle input[type='checkbox']");
 checkbox.addEventListener("change", toggleDarkMode);
-
