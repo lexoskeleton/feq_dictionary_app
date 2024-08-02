@@ -8,6 +8,8 @@ Our goal was to create a real-world dictionary web app according to the guidelin
 - See a form validation message when trying to submit a blank form
 - Switch between serif, sans serif, and monospace fonts
 - Switch between light and dark themes
+
+  
 ![image](https://github.com/user-attachments/assets/c7fa8656-7d08-42c9-8d0c-7cb93f5f6ad2)
 ![image](https://github.com/user-attachments/assets/8d07fd11-321e-4af8-aae2-f23956afb121)
 
