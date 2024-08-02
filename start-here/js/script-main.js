@@ -212,7 +212,7 @@ optionsList.forEach((option) => {
 // DOMContentLoaded event allows for the script to run before the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.querySelector("#toggle");
-  
+
   // Add event listener for the toggle button
   toggleBtn.addEventListener("click", function () {
     if (toggleBtn.checked) {
@@ -221,4 +221,9 @@ document.addEventListener("DOMContentLoaded", function () {
       body.classList.remove("dark-mode");
     }
   });
+});
+
+// add event listener to click play image
+playImage.addEventListener("click", () => {
+  pronunciationAudio.play();
 });
