@@ -23,9 +23,15 @@ Technologies used include:
 ## The Contributors
 
 ### Meet the Dev Divas team!
+- [Lexi Antar](https://github.com/lexoskeleton)
+- [Gabriela Knop Marques](https://github.com/knopgm)
+- [Ainur Saduova](https://github.com/NuraSad)
+- [Iroh Omolola](https://github.com/Iroh-Omolola)
+- [Audrey Clark](https://github.com/audreyclarkdev)
+- [Christine Belzie](https://github.com/CBID2)
 
-<a href="https://github.com/lexoskeleton/feq_dictionary_app/graphs/contributors">
+<!-- <a href="https://github.com/lexoskeleton/feq_dictionary_app/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=lexoskeleton/feq_dictionary_app" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+Made with [contrib.rocks](https://contrib.rocks). -->
