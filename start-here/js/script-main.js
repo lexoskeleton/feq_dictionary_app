@@ -1,4 +1,7 @@
-//Message to cheange class if input is empty:
+// To access the body of the page
+const body = document.querySelector("body");
+
+//Message to change class if input is empty:
 const warningMessage = document.querySelector(".warning-message");
 
 //Select Input field to verify emptiness:
@@ -12,6 +15,12 @@ const playImage = document.getElementById("play-image");
 
 //Add event listener to the search button
 searchButton.addEventListener("click", handleSearchButtonClick);
+input.addEventListener("keyup", function (e) {
+  e.preventDefault();
+  if (e.keyCode === 13) {
+    searchButton.click();
+  }
+});
 
 input.addEventListener("focus", handleSearchInputFocus);
 
@@ -128,6 +137,10 @@ function handleSearchInputFocus() {
   input.classList.remove("search-input--warning");
 }
 
+function fetchDictionary(value) {
+  console.log("fetchDictionary", value);
+}
+
 input.addEventListener("focus", function () {
   warningMessage.style.display = "none";
   input.classList.remove("search-box--warning");
@@ -171,6 +184,7 @@ function handleFontChange(font) {
       throw new Error("Invalid font");
   }
 }
+
 // add event listener to list items
 optionsList.forEach((option) => {
   function handler(e) {
@@ -184,16 +198,24 @@ optionsList.forEach((option) => {
   }
   option.addEventListener("click", handler);
 });
-// Dark Mode Toggle//
-function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-}
+
+// Dark Mode Toggle Functionality
+// DOMContentLoaded event allows for the script to run before the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector("#toggle");
+
+  // Add event listener for the toggle button
+  toggleBtn.addEventListener("click", function () {
+    if (toggleBtn.checked) {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  });
+});
 
 // add event listener to click play image
 playImage.addEventListener("click", () => {
   console.log(pronunciationAudio);
   pronunciationAudio.play();
 });
-
-const checkbox = document.querySelector("label.toggle input[type='checkbox']");
-checkbox.addEventListener("change", toggleDarkMode);
