@@ -20,7 +20,6 @@ body {
   --text-color: #fff;
   --light-grey-bg-color: #3a3a3a;
   --text-color-dark: #f2f2f2;
-  --icon-color:#a445ed;
 }
 
 /* container style */
@@ -208,23 +207,22 @@ label[for="mono"] {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  gap: 10px;
+  margin-left: 5px;
   width: 46px;
   height: 20px;
   background-color: #757575;
   border-radius: 30px;
-  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
 }
 
 /* After dark mode is enabled - toggle on */
 .toggle-slider::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0px; 
-  left: 0px;
-  background-color: #ccc;
+  width: 16px;
+  height: 16px;
+  top: 2px; 
+  left: 2px;
+  background-color: #ffffff;
   border-radius: 50%;
   transition: all 0.3s;
 }
@@ -239,7 +237,7 @@ display: none;
 }
 
 .checkbox-switch:checked + .toggle-slider::after {
-  transform: translateX(25px);
+  transform: translateX(24px);
 }
 
 .checkbox-switch {
@@ -277,10 +275,14 @@ display: none;
 }
 
 /* Dark mode styling for the font options dropdown */
-.checkbox-switch:checked ~ ul.select-dropdown {
+/* ul.custom-select ~ .checkbox-switch:checked{
   background-color:#000;
   color: #fff;
 }
+ul.custom-select:active ~ .checkbox-switch:checked{
+  background-color:#000;
+  color: #fff;
+} */
 
 /* results styles */
 .title-audio-wrapper {

@@ -164,12 +164,6 @@ optionsList.forEach((option) => {
 // DOMContentLoaded event allows for the script to run before the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.querySelector("#toggle");
-
-    if (toggleBtn.checked) {
-      document.body.classList.add("dark-mode");
-    } else {
-      document.body.classList.remove("dark-mode");
-    }
   
   // Add event listener for the toggle button
   toggleBtn.addEventListener("click", function () {
