@@ -10,7 +10,8 @@ Our goal was to create a real-world dictionary web app according to the guidelin
 - Switch between light and dark themes
 
 ### Known Issues
-The Dictionary API has an open issue concerning a bug with audio files. Our project's audio files were playing as expected before this bug. 
+- Compatibility with Firefox & Edge browsers - please open in Chrome for now.
+
 
 ## The Tech Stack
 
@@ -22,7 +23,7 @@ Technologies used include:
 
 ## The Contributors
 
-### Meet the Dev Divas team!
+### Meet the Dev Divas!
 - [Lexi Antar](https://github.com/lexoskeleton)
 - [Gabriela Knop Marques](https://github.com/knopgm)
 - [Ainur Saduova](https://github.com/NuraSad)
