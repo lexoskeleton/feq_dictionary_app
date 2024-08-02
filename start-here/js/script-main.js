@@ -216,6 +216,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // add event listener to click play image
 playImage.addEventListener("click", () => {
-  console.log(pronunciationAudio);
   pronunciationAudio.play();
 });
