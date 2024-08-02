@@ -26,115 +26,112 @@ input.addEventListener("focus", handleSearchInputFocus);
 
 //Handle Search
 async function handleSearchButtonClick() {
+  const allResultsContainer = document.querySelector("#all-results");
+  const errorContainer = document.querySelector("#error-container");
+
   if (input.value === "") {
     warningMessage.classList.remove("warning-message--hidden");
     // add display: block to show a message
     warningMessage.style.display = "block";
     input.classList.add("search-input--warning");
     return;
-  } else {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
-    );
-    // need to check for 404 error
-    if (response.ok) {
-      const data = await response.json();
-      const meanings = data[0].meanings;
-      const phonetics = data[0].phonetics[0];
+  }
+  const response = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${input.value}`
+  );
 
-      document.querySelector(".title").innerText = input.value;
+  // need to check for 404 error
+  if (response.ok) {
+    allResultsContainer.classList.remove("hidden");
+    errorContainer.classList.add("hidden");
 
-      if (phonetics.text) {
-        // use specific selector
-        const h2 = document.querySelector(".phonetic-subtitle");
-        h2.innerText = phonetics.text;
-        const audioWrapper = document.querySelector(".audio-wrapper");
-        // conditional play audio display
-        if (phonetics.audio.length) {
-          audioWrapper.style.display = "block";
-          const audio = document.querySelector("audio");
-          audio.src = phonetics.audio;
-        } else {
-          audioWrapper.style.display = "none";
-        }
+    const data = await response.json();
+    const meanings = data[0].meanings;
+    const phonetics = data[0].phonetics[0];
+
+    document.querySelector(".title").innerText = input.value;
+
+    if (phonetics.text) {
+      // use specific selector
+      const h2 = document.querySelector(".phonetic-subtitle");
+      h2.innerText = phonetics.text;
+      const audioWrapper = document.querySelector(".audio-wrapper");
+      // conditional play audio display
+      if (phonetics.audio.length) {
+        audioWrapper.style.display = "block";
+        const audio = document.querySelector("audio");
+        audio.src = phonetics.audio;
+      } else {
+        audioWrapper.style.display = "none";
       }
-
-      const resultWrappers = document.querySelectorAll(".result-wrapper");
-
-      resultWrappers.forEach((resultWrapper, index) => {
-        const meaningResultWrapper = resultWrapper.querySelector(
-          ".meaning-result_wrapper"
-        );
-
-        const listOfMeanings =
-          meaningResultWrapper.querySelector(".list-of-meanings");
-        listOfMeanings.innerHTML = "";
-
-        const meaning = meanings[index];
-        if (meaning) {
-          const gramType = resultWrapper.querySelector(
-            ".gramitical-type_wrapper h3"
-          );
-          gramType.innerText = meaning.partOfSpeech;
-
-          meaning.definitions.forEach((definition) => {
-            const li = document.createElement("li");
-            li.textContent = definition.definition;
-            if (definition.example) {
-              const example = document.createElement("div");
-              example.classList.add("example");
-              example.textContent = definition.example;
-              li.appendChild(example);
-            }
-            if (definition.synonyms.length) {
-              const synonyms = document.createElement("div");
-              synonyms.classList.add("subtitle-light-grey", "synonym");
-              synonyms.textContent = definition.synonyms.join(", ");
-              li.appendChild(synonyms);
-            }
-            if (definition.antonyms.length) {
-              const antonyms = document.createElement("div");
-              antonyms.classList.add("subtitle-light-grey", "antonym");
-              antonyms.textContent = definition.antonyms.join(", ");
-              li.appendChild(antonyms);
-            }
-
-            listOfMeanings.appendChild(li);
-          });
-          if (meaning.synonyms) {
-            const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
-            synonyms.textContent = meaning.synonyms.join(", ");
-          }
-          if (meaning.antonyms) {
-            const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
-            antonyms.textContent = meaning.antonyms.join(", ");
-          }
-        }
-      });
-
-      // Update source
-      const sourceDiv = document.querySelector("div > h4 + a");
-      sourceDiv.innerText = data[0].sourceUrls;
-      sourceDiv.href = data[0].sourceUrls;
-    } else {
-      const resultContainer = document.querySelectorAll(".container")[2];
-      resultContainer.innerHTML = "";
-      const errorContainer = document.createElement("div");
-      errorContainer.classList.add("error-container");
-      const smile = document.createElement("span");
-      smile.textContent = "😕";
-      const title = document.createElement("h3");
-      title.textContent = "No Definitions Found";
-      const message = document.createElement("p");
-      message.textContent = `Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.`;
-
-      errorContainer.appendChild(smile);
-      errorContainer.appendChild(title);
-      errorContainer.appendChild(message);
-      resultContainer.appendChild(errorContainer);
     }
 
-    input.classList.remove("search-box--warning");
+    const resultWrappers = document.querySelectorAll(".result-wrapper");
+
+    resultWrappers.forEach((resultWrapper, index) => {
+      const meaningResultWrapper = resultWrapper.querySelector(
+        ".meaning-result_wrapper"
+      );
+
+      const listOfMeanings =
+        meaningResultWrapper.querySelector(".list-of-meanings");
+      listOfMeanings.innerHTML = "";
+
+      const meaning = meanings[index];
+      if (meaning) {
+        const gramType = resultWrapper.querySelector(
+          ".gramitical-type_wrapper h3"
+        );
+        gramType.innerText = meaning.partOfSpeech;
+
+        meaning.definitions.forEach((definition) => {
+          const li = document.createElement("li");
+          li.textContent = definition.definition;
+          if (definition.example) {
+            const example = document.createElement("div");
+            example.classList.add("example");
+            example.textContent = `"${definition.example}"`;
+            li.appendChild(example);
+          }
+          if (definition.synonyms.length) {
+            const synonyms = document.createElement("div");
+            synonyms.classList.add("subtitle-light-grey", "synonym");
+            synonyms.textContent = definition.synonyms.join(", ");
+            li.appendChild(synonyms);
+          }
+          if (definition.antonyms.length) {
+            const antonyms = document.createElement("div");
+            antonyms.classList.add("subtitle-light-grey", "antonym");
+            antonyms.textContent = definition.antonyms.join(", ");
+            li.appendChild(antonyms);
+          }
+
+          listOfMeanings.appendChild(li);
+        });
+        if (meaning.synonyms && meaning.synonyms.length > 0) {
+          const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+          synonyms.textContent = meaning.synonyms.join(", ");
+        } else {
+          const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+          synonyms.textContent = "";
+        }
+        if (meaning.antonyms && meaning.antonyms.length > 0) {
+          const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+          antonyms.textContent = meaning.antonyms.join(", ");
+        } else {
+          const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+          antonyms.textContent = "";
+        }
+      }
+    });
+
+    // Update source
+    const sourceDiv = document.getElementById("source");
+    sourceDiv.innerText = data[0].sourceUrls[0];
+    sourceDiv.href = data[0].sourceUrls[0];
+  } else {
+    allResultsContainer.classList.add("hidden");
+    errorContainer.classList.remove("hidden");
   }
 
   warningMessage.classList.add("warning-message--hidden");
@@ -212,7 +209,7 @@ optionsList.forEach((option) => {
 // DOMContentLoaded event allows for the script to run before the page loads
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.querySelector("#toggle");
-  
+
   // Add event listener for the toggle button
   toggleBtn.addEventListener("click", function () {
     if (toggleBtn.checked) {
@@ -221,4 +218,9 @@ document.addEventListener("DOMContentLoaded", function () {
       body.classList.remove("dark-mode");
     }
   });
+});
+
+// add event listener to click play image
+playImage.addEventListener("click", () => {
+  pronunciationAudio.play();
 });
