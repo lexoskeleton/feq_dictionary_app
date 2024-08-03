@@ -13,7 +13,6 @@
   display: none !important;
 }
 
-
 /* light mode theme starts here */
 /* @media (prefers-color-scheme: light) {
   :root {
@@ -161,7 +160,9 @@ nav {
 .selected-value {
   text-align: left;
   margin-right: 0.8rem;
+  font-size: 14px;
 }
+
 .select-dropdown {
   position: absolute;
   z-index: 2;
@@ -445,6 +446,10 @@ a {
 
   .top-right-styling-menu {
     gap: 10px;
+  }
+
+  .selected-value {
+    font-size: 18px;
   }
 
   .play-button {
