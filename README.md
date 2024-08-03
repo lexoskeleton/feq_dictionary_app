@@ -16,7 +16,7 @@ Our goal was to create a real-world dictionary web app according to the guidelin
 
 
 ### Known Issues
-- Compatibility with Firefox & Edge browsers - please open in Chrome for now.
+- Possible compatibility issues across MacOS & PC.
 
 
 ## The Tech Stack
