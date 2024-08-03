@@ -13,33 +13,24 @@
   display: none !important;
 }
 
-.toggle-wrapper {
-  display: flex;
-  align-items: center;
-}
-.toggle {
-  display: flex;
-  gap: 10px;
-  height: 32px;
-}
 
 /* light mode theme starts here */
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #fff;
     --text-color: #000;
   }
-}
+} */
 /* light mode theme ends here */
 /* dark mode theme starts here */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #000;
     --text-color: #fff;
     --light-grey-bg-color: #3a3a3a;
     --text-color-dark: #f2f2f2;
   }
-}
+} */
 
 body {
   background-color: var(--bg-color);
