@@ -112,14 +112,14 @@ async function handleSearchButtonClick() {
           const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
           synonyms.textContent = meaning.synonyms.join(", ");
         } else {
-          const synonyms = resultWrapper.querySelector(".synonyms_wrapper p");
+          const synonyms = resultWrapper.querySelector(".synonyms_wrapper");
           synonyms.textContent = "";
         }
         if (meaning.antonyms && meaning.antonyms.length > 0) {
           const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
           antonyms.textContent = meaning.antonyms.join(", ");
         } else {
-          const antonyms = resultWrapper.querySelector(".antonyms_wrapper p");
+          const antonyms = resultWrapper.querySelector(".antonyms_wrapper");
           antonyms.textContent = "";
         }
       }
